@@ -1,0 +1,66 @@
+\documentclass[12pt,leqno,twoside]{book} 
+\usepackage{leftidx}
+\usepackage{bezier,amsmath,amssymb,stmaryrd,lscape,amsthm,upgreek}
+\usepackage{bbold}
+\usepackage{graphicx}
+\usepackage{yfonts}
+\graphicspath{ {d:/} }
+\usepackage[colorlinks, linkcolor=black, citecolor=black, urlcolor=black]{hyperref}                % hyperlinked pdf-output
+
+
+\pagestyle{myheadings}
+\textheight24.5cm
+\textwidth17cm
+\unitlength0.1mm        
+\oddsidemargin-0.5cm                    % nur in Bielefeld
+\evensidemargin-0.5cm                   % nur in Bielefeld
+\topmargin-1.0cm                        %     - " -
+\voffset=-1.0cm                         % fuer arxiv
+\parskip1.2ex
+\parindent0pt
+\renewcommand{\arraystretch}{1.2}   
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+\sloppy
+
+% new title sizes
+\renewcommand{\contentsname}{\large Contents}
+\renewcommand{\bibname}{\large References}
+
+% macros
+\newcommand{\U}{\mathcal U}
+\newcommand{\lam}{\lambda}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\del}{\Delta}
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\g}{\textswab{g}}
+\newcommand{\A}{\mathcal A}
+\newcommand{\T}{\mathcal T}
+\newcommand{\F}{\mathcal F}
+\newcommand{\hsp}[1]{\hspace*{#1mm}}
+\newcommand{\vsp}[1]{\vspace*{#1mm}}
+\begin{document}
+Aufgabe 1\\	
+(1). Sei $\g=K^{3\times1}$ mit $\left[\left(\begin{array}{c} \alpha \\ \beta \\ \gamma \end{array}\right),\left(\begin{array}{c} \alpha' \\ \beta' \\ \gamma' \end{array}\right)\right]=\left(\begin{array}{c} \beta\gamma'-\gamma\beta' \\ \gamma\alpha'-\alpha\gamma' \\ \alpha\beta'-\beta\alpha' \end{array}\right)$ f\"{u}r $\left(\begin{array}{c} \alpha \\ \beta \\ \gamma \end{array}\right),\left(\begin{array}{c} \alpha' \\ \beta' \\ \gamma' \end{array}\right)\in K^{3\times1}$, 
+\\Zu zeigen : $\g$ ist eine Liealgebra.\\
+1.F\"{u}r $g=\left(\begin{array}{c} \alpha \\ \beta \\ \gamma \end{array}\right)\in K^{3\times1}$, $[g,g]=\left[\left(\begin{array}{c} \alpha \\ \beta \\ \gamma \end{array}\right),\left(\begin{array}{c} \alpha \\ \beta \\ \gamma \end{array}\right)\right]=\left(\begin{array}{c} \beta\gamma-\gamma\beta \\ \gamma\alpha-\alpha\gamma \\ \alpha\beta-\beta\alpha \end{array}\right)=0$\\
+2.Seien $g,g',g''\in K^{3\times1}$ mit $g=\left(\begin{array}{c} \alpha \\ \beta \\ \gamma \end{array}\right),g'=\left(\begin{array}{c} \alpha' \\ \beta' \\ \gamma' \end{array}\right),g''=\left(\begin{array}{c} \alpha'' \\ \beta'' \\ \gamma'' \end{array}\right)$\\
+Dann gilt 
+\[[g,[g',g'']]+[g',[g'',g']]+[g'',[g,g']]=\left(\begin{array}{c} \beta\alpha'\beta''-\beta\beta'\alpha''-\gamma\gamma'\alpha''+\gamma\alpha'\gamma'' \\ \gamma\beta'\gamma''-\gamma\gamma'\beta''-\alpha\alpha'\beta''+\alpha\beta'\alpha'' \\ \alpha\gamma'\alpha''-\alpha\alpha'\gamma''-\beta\beta'\gamma''+\beta\gamma'\beta'' \end{array}\right)+\]\[\left(\begin{array}{c} \beta'\alpha''\beta-\beta'\beta''\alpha-\gamma'\gamma''\alpha+\gamma'\alpha''\gamma \\ \gamma'\beta''\gamma-\gamma'\gamma''\beta-\alpha'\alpha''\beta+\alpha'\beta''\alpha \\ \alpha'\gamma''\alpha-\alpha'\alpha''\gamma-\beta'\beta''\gamma+\beta'\gamma''\beta \end{array}\right)+\left(\begin{array}{c} \beta''\alpha\beta'-\beta''\beta\alpha'-\gamma''\gamma\alpha'+\gamma''\alpha\gamma' \\ \gamma''\beta\gamma'-\gamma''\gamma\beta'-\alpha''\alpha\beta'+\alpha''\beta\alpha' \\ \alpha''\gamma\alpha'-\alpha''\alpha\gamma'-\beta''\beta\gamma'+\beta''\gamma\beta' \end{array}\right)=0\]
+Dann ist $\g$ eine Liealgebra.\\
+\\
+(2). Sei $n\geq0, a\in K^{n\times n}$, zu zeigen: $\textswab{o}(K,a):=\{g\in\textswab{gl}_n(K):g^ta=-ag\}\leq\textswab{gl}_n(k)$\\
+Es ist zu zeigen: Seien $g,\bar{g}\in\textswab{o}(K,a)$, $[g,\bar{g}]\in\textswab{o}(K,a)\Leftrightarrow[g,\bar{g}]^ta=-a[g,\bar{g}]$\\
+\[[g,\bar{g}]^ta=(g\bar{g}-\bar{g}g)^ta=(g\bar{g})^ta-(\bar{g}g)^ta=\bar{g}^tg^ta-g^t\bar{g}^ta\]
+Da $g,\bar{g}\in\textswab{o}(K,a)\Rightarrow g^ta=-ag,\bar{g}^ta=-a\bar{g}$\\
+\[\bar{g}^tg^ta-g^t\bar{g}^ta=-\bar{g}^tag+g^ta\bar{g}=a\bar{g}g-ag\bar{g}=-a(g\bar{g}-\bar{g}g)=-a[g,\bar{g}]\]
+$[g,\bar{g}]^ta=-a[g,\bar{g}]$ also $[g,\bar{g}]\in\textswab{o}(K,a)$, dann ist $\textswab{o}(K,a)\leq\textswab{gl}_n(k)$\\
+\\
+(3). Sei $f:\textswab{h}\rightarrow\textswab{k}$ ein Isomorphismus von Liealgebren, zu zeigen: $f^{-1}:\textswab{k}\rightarrow\textswab{h}$ ist auch ein Isomorphismus.\\
+Es ist zu zeigen : f\"{u}r $k,k'\in\textswab{k}, f^{-1}([k,k'])=[f^{-1}(k),f^{-1}(k')]$\\
+Da f ist ein Isomorphismus, $[f(f^{-1}(k)),f(f^{-1}(k'))]=f([f^{-1}(k),f^{-1}(k')]$
+\[\Rightarrow f^{-1}([k,k'])=f^{-1}([f(f^{-1}(k)),f(f^{-1}(k'))])=f^{-1}\circ f([f^{-1}(k),f^{-1}(k')])=[f^{-1}(k),f^{-1}(k')]\]
+Dann ist $f^{-1}$ auch ein Isomorphismus.
+
+\end{document}
