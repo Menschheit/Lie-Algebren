@@ -1,0 +1,143 @@
+\documentclass[12pt,leqno,twoside]{article} 
+\usepackage{leftidx}
+\usepackage{bezier,amsmath,amssymb,stmaryrd,lscape,amsthm,upgreek}
+\usepackage{bbold}
+\usepackage{graphicx}
+\usepackage{yfonts}
+\graphicspath{ {d:/} }
+\usepackage[colorlinks, linkcolor=black, citecolor=black, urlcolor=black]{hyperref}                % hyperlinked pdf-output
+
+
+\pagestyle{myheadings}
+\textheight24.5cm
+\textwidth17cm
+\unitlength0.1mm        
+\oddsidemargin-0.5cm                    % nur in Bielefeld
+\evensidemargin-0.5cm                   % nur in Bielefeld
+\topmargin-1.0cm                        %     - " -
+\voffset=-1.0cm                         % fuer arxiv
+\parskip1.2ex
+\parindent0pt
+\renewcommand{\arraystretch}{1.2}   
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+\sloppy
+
+% new title sizes
+\renewcommand{\contentsname}{\large Contents}
+%\renewcommand{\bibname}{\large References}
+
+% macros
+\newcommand{\scm}{\scriptstyle}
+\newcommand{\U}{\mathcal U}
+\newcommand{\lam}{\lambda}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\del}{\Delta}
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\g}{\mathfrak g}
+\newcommand{\A}{\mathcal A}
+\newcommand{\T}{\mathcal T}
+\newcommand{\F}{\mathcal F}
+\newcommand{\hsp}[1]{\hspace*{#1mm}}
+\newcommand{\vsp}[1]{\vspace*{#1mm}}
+\newcommand{\0}{\circ} 
+\newcommand{\enger}{\setlength{\arraycolsep}{1pt}
+	\renewcommand{\arraystretch}{0.5} }
+\newcommand{\weiter}{\setlength{\arraycolsep}{3pt}
+	\renewcommand{\arraystretch}{1.0} }
+\newcommand{\smatdd}[9]{\enger
+	\left(
+	\begin{array}{ccc}
+		\scm #1 & \scm #2 & \scm #3 \\
+		\scm #4 & \scm #5 & \scm #6 \\
+		\scm #7 & \scm #8 & \scm #9 \\
+	\end{array}
+	\right) 
+	\weiter }
+\newcommand{\smatde}[3]{\enger
+	\left(
+	\begin{array}{c}
+		\scm #1 \\
+		\scm #2 \\
+		\scm #3
+	\end{array}
+	\right) 
+	\weiter }
+\newcommand{\smatzz}[4]{\enger
+	\left(
+	\begin{array}{cc}
+		\scm #1 & \scm #2 \\
+		\scm #3 & \scm #4 
+	\end{array}
+	\right) 
+	\weiter }
+\newcommand{\lrxa}[1]{\xrightarrow{#1}}
+\newcommand{\ba}{\begin{array}}
+\newcommand{\barcl}{\begin{array}{rcl}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\set}[2]{\{\,#1\,:\,#2\,\}}
+\newcommand{\auf}{\stackrel}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\ad}{ad}
+\newcommand{\mf}{\mathfrak}
+\newtheorem{AG}{Aufgabe}
+\setcounter{AG}{13}
+\begin{document}
+
+\title{Blatt4}
+\begin{AG}
+\rm
+Wir haben eine Abbildung $\ad':  \mf{g} \to \mf{gl}(\mf{a}),\, g\mapsto (\ad_{\mf{g}}g)|_{\mf{a}}^\mf{a}$. Ist wohldefiniert da $(\ad_{\mf{g}}g)(a) = [g,a] \in \mf{a}$.
+
+Wir wissen dass die Abbildung $\ad_{\mf{g}}$ ein Morphismus ist, also ist $\ad'$ auch linear. Weiter gilt f\"ur $g,g' \in \mf{g}$
+
+\[
+\barcl
+[\ad'g,\, ad'g'] & = & \ad'g \0 \ad'g' - \ad'g'\0\ad'g\\
+				 & = &a\mapsto ( [g,\,[g',\,a]] - [g',\,[g,\,a]]) \\
+				 & = & a\mapsto [[g,\,g'],a] \\
+				 & = &\ad'[g,\,g'] \in \ad'\mf{g}.
+\ea
+\]
+
+Dann ist $\ad'\mf{g} \leqslant \mf{gl}(\mf{a})$. 
+
+
+Da $\mf{g}$ nilpotent ist, besteht $\ad_{\mf{g}}\mf{g}$ (nach Engel) aus nilpotenten Endomorphismen von $\mf{g}$. Das hei{\ss}t f\"ur $g\in \mf{g}$ ist $\ad_{\mf{g}}g$ nilpotent, also auch $(\ad_{\mf{g}}g)|_{\mf{a}}^{\mf{a}}$. Daraus folgt dass $\ad'\mf{g}$ aus nilpotenten Endomorphismen besteht.
+
+Dann sind die Voraussetzungen f\"ur Lemma 37 erf\"ullt. Nach dem Lemma gibt es ein $v \in \mf{a}\backslash\{0\}$ mit $[g,v]=(\ad'g)(v) = 0$ f\"ur alle $g \in \mf{g}$, d.h $v \in \mf{z}(\mf{g})$, somit ist $0\neq v \in \mf{a}\cap \mf{z}(\mf{g})$ also $\mf{a}\cap \mf{z}(\mf{g}) \neq 0$.
+
+
+ 
+\end{AG}
+
+\begin{AG}
+\rm
+Wir haben Projektionen
+\[
+\barcl
+\pi_1: \mf{g} \oplus \mf{h} & \to     & \mf{g}\\
+					 (g,\,h)&\mapsto  & g
+\ea
+\]
+und
+\[
+\barcl
+\pi_2: \mf{g} \oplus \mf{h} & \to     & \mf{h}\\
+(g,\,h)&\mapsto  & h.
+\ea
+\]
+
+Die sind surjektiven Morphismen von Liealgebren.
+
+Sei $\mf{a}\trianglelefteq \mf{g} \oplus \mf{h}$ mit $\mf{a}$ abelsch, dann ist $\pi_i(\mf{a})$ abelsch. F\"ur $g\in\mf{g}$ und $(a,\, b)\in \mf{a}$ gilt
+\[
+[\pi_1((a,\,b)),\, g] = [\pi_1((a,\,b)),\, \pi_1((g,\,0))] = \pi_1([(a,\,b),\,(g,\,0)]) \in \pi_1(\mf{a})
+\]
+Also ist $\pi_1(\mf{a}) \trianglelefteq \mf{g}$, nach Voraussetzung ist dann $\pi_1(\mf{a}) = 0$.
+
+Analog gilt auch  $\pi_2(\mf{a}) = 0$, also ist $\mf{a} = 0$, somit ist $\mf{g} \oplus \mf{h}$ halbeinfach.
+\end{AG}
+
+\end{document}
